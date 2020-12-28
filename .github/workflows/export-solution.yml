@@ -16,9 +16,7 @@ on:
 jobs:
   export-solution:
     runs-on: windows-latest
-#    env
-
-  steps:
+    steps:
     - name: checkout
       uses: actions/checkout@v2
       with: 
