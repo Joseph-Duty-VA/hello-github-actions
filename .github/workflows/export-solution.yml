@@ -1,6 +1,6 @@
 name: "Export-Solution"
-description: "Exports solution"
-author: "Joseph-Duty-VA"
+#description: "Exports solution"
+#author: "Joseph-Duty-VA"
 
 on:
   workflow_dispatch: 
