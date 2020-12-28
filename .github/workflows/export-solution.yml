@@ -1,5 +1,4 @@
 name: "Export-Solution"
-description: "Exports the CRM solution with provided name"
 author: "Joseph-Duty-VA"
 
 on:
