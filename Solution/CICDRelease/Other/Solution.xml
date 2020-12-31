@@ -6,7 +6,7 @@
       <LocalizedName description="CICDRelease" languagecode="1033" />
     </LocalizedNames>
     <Descriptions />
-    <Version>2020.12.31.4</Version>
+    <Version>2020.12.31.5</Version>
     <Managed>2</Managed>
     <Publisher>
       <UniqueName>mcs</UniqueName>
