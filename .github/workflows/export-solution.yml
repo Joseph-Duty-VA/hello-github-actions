@@ -1,6 +1,6 @@
 name: "Export-Solution"
-description: "Exports the CRM solution with provided name"
-author: "Joseph-Duty-VA"
+#description: "Exports solution"
+#author: "Joseph-Duty-VA"
 
 on:
   workflow_dispatch: 
@@ -17,15 +17,14 @@ on:
 jobs:
   export-solution:
     runs-on: windows-latest
-#    env
-
-  steps:
-    - uses: actions/checkout@v2
+    steps:
+    - name: checkout
+      uses: actions/checkout@v2
       with: 
         lfs: true
 
     - name: who-am-i action
-      uses: microsoft/powerplatform-actions/who-am-i@v2
+      uses: microsoft/powerplatform-actions/who-am-i@v0
       with:
         environment-url: ${{ github.event.inputs.source-org }}" 
         user-name: ${{ secrets.crm_dev_clientid }}
