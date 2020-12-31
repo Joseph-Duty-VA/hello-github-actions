@@ -7,11 +7,11 @@ on:
       solutionName:
         description: "Solution Name"
         required: true
-        default: "GitHubSolution"
+        default: "CICDRelease"
       sourceEnvironmentUrl:
         description: "Source Environment URL"
         required: true
-        default: "https://xxxx.crm9.dynamics.com"
+        default: "https://dvagov-veft-dev.crm9.dynamics.com"
       targetEnvironmentUrl:
         description: "Target Environment URL"
         required: true
