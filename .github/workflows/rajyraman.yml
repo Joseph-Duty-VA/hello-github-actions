@@ -15,7 +15,7 @@ on:
       targetEnvironmentUrl:
         description: "Target Environment URL"
         required: true
-        default: "https://xxxx.crm9.dynamics.com"
+        default: "https://dvagov-veft-int.crm9.dynamics.com"
       release:
         description: "Release?"
         required: true
