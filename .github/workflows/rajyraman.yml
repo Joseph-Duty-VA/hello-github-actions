@@ -50,8 +50,8 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           solutionName: ${{ github.event.inputs.solutionName }}
           sourceEnvironmentUrl: ${{ github.event.inputs.sourceEnvironmentUrl }}
-          applicationId: ${{ secrets.APPLICATION_ID }}
-          applicationSecret: ${{ secrets.APPLICATION_SECRET }}
+          applicationId: ${{ secrets.CRM_DEV_CLIENTID }}
+          applicationSecret: ${{ secrets.CRM_DEV_CLIENTSECRET }}
           releaseSolution: ${{ github.event.inputs.release }}
 
       - name: Deploy Solution
@@ -61,7 +61,7 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           solutionName: ${{ github.event.inputs.solutionName }}
           targetEnvironmentUrl: ${{ github.event.inputs.targetEnvironmentUrl }}
-          applicationId: ${{ secrets.APPLICATION_ID }}
-          applicationSecret: ${{ secrets.APPLICATION_SECRET }}
+          applicationId: ${{ secrets.CRM_DEV_CLIENTID }}
+          applicationSecret: ${{ secrets.CRM_DEV_CLIENTSECRET }}
           tag: ${{ steps.extract-solution.outputs.solutionVersion }}
           managed: ${{ github.event.inputs.managed }}
