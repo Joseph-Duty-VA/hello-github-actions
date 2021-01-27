@@ -23,34 +23,35 @@ jobs:
       with: 
         lfs: true
 
-    - name: who-am-i action
-      uses: microsoft/powerplatform-actions/who-am-i@v0
-      with:
-        environment-url: ${{ github.event.inputs.source-org }}" 
-        user-name: ${{ secrets.crm_dev_clientid }}
-        password-secret: ${{ secrets.crm_dev_clientsecret }}
+    # - name: who-am-i action
+    #   uses: microsoft/powerplatform-actions/who-am-i@v0
+    #   with:
+    #     environment-url: ${{ github.event.inputs.source-org }}" 
+    #     user-name: ${{ secrets.crm_dev_clientid }}
+    #     password-secret: ${{ secrets.crm_dev_clientsecret }}
 
     - name: export-solution action
       uses: microsoft/powerplatform-actions/export-solution@v0
       with:
-        environment-url: ${{ github.event.inputs.source-org }}" 
+        environment-url: ${{ github.event.inputs.source-org }}"
         user-name: ${{ secrets.crm_dev_clientid }}
         password-secret: ${{ secrets.crm_dev_clientsecret }}
         solution-name: ${{ github.event.inputs.solution-name }}" 
-        solution-output-file: 'out/exported/${{ github.event.inputs.solution-name }}.zip'
+        solution-output-file: '${{ github.event.inputs.solution-name }}.zip'
+        working-directory: 'out'
 
-    - name: unpack-solution action
-      uses: microsoft/powerplatform-actions/unpack-solution@v0
-      with:
-        solution-file: 'out/exported/${{ github.event.inputs.solution-name }}.zip'
-        solution-folder: out/solutions/${{ github.event.inputs.solution-name }}
-        solution-type: 'Unmanaged'
-        overwrite-files: true
+    # - name: unpack-solution action
+    #   uses: microsoft/powerplatform-actions/unpack-solution@v0
+    #   with:
+    #     solution-file: 'out/exported/${{ github.event.inputs.solution-name }}.zip'
+    #     solution-folder: out/solutions/${{ github.event.inputs.solution-name }}
+    #     solution-type: 'Unmanaged'
+    #     overwrite-files: true
 
-    - name: branch-solution, prepare it for a PullRequest
-      uses: microsoft/powerplatform-actions/branch-solution@v0
-      with:
-        solution-folder: out/solutions/${{ github.event.inputs.solution-name }}
-        solution-target-folder: solutions/${{ github.event.inputs.solution-name }}
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
-        allow-empty-commit: true
+    # - name: branch-solution, prepare it for a PullRequest
+    #   uses: microsoft/powerplatform-actions/branch-solution@v0
+    #   with:
+    #     solution-folder: out/solutions/${{ github.event.inputs.solution-name }}
+    #     solution-target-folder: solutions/${{ github.event.inputs.solution-name }}
+    #     repo-token: ${{ secrets.GITHUB_TOKEN }}
+    #     allow-empty-commit: true
