@@ -23,12 +23,15 @@ jobs:
       with: 
         lfs: true
 
-    # - name: who-am-i action
-    #   uses: microsoft/powerplatform-actions/who-am-i@v0
-    #   with:
-    #     environment-url: ${{ github.event.inputs.source-org }}" 
-    #     user-name: ${{ secrets.crm_dev_clientid }}
-    #     password-secret: ${{ secrets.crm_dev_clientsecret }}
+    - name: who-am-i action
+      uses: microsoft/powerplatform-actions/who-am-i@v0
+      with:
+        environment-url: ${{ github.event.inputs.source-org }}" 
+        app-id: ${{ secrets.crm_dev_clientid }}
+        client-secret: ${{ secrets.crm_dev_clientid }}
+        tenant-id: "e95f1b23-abaf-45ee-821d-b7ab251ab3bf"
+        # user-name: ${{ secrets.crm_dev_clientid }}
+        # password-secret: ${{ secrets.crm_dev_clientsecret }}
 
     - name: export-solution action
       uses: microsoft/powerplatform-actions/export-solution@v0
