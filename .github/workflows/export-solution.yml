@@ -24,7 +24,7 @@ jobs:
         lfs: true
 
     - name: who-am-i action
-      uses: microsoft/powerplatform-actions/who-am-i
+      uses: microsoft/powerplatform-actions/who-am-i@latest
       with:
         environment-url: ${{ github.event.inputs.source-org }}" 
         app-id: ${{ secrets.crm_dev_clientid }}
@@ -33,15 +33,15 @@ jobs:
         # user-name: ${{ secrets.crm_dev_clientid }}
         # password-secret: ${{ secrets.crm_dev_clientsecret }}
 
-    - name: export-solution action
-      uses: microsoft/powerplatform-actions/export-solution@v0
-      with:
-        environment-url: ${{ github.event.inputs.source-org }}
-        user-name: ${{ secrets.crm_dev_clientid }}
-        password-secret: ${{ secrets.crm_dev_clientsecret }}
-        solution-name: ${{ github.event.inputs.solution-name }}
-        solution-output-file: '${{ github.event.inputs.solution-name }}.zip'
-        working-directory: 'out'
+    # - name: export-solution action
+    #   uses: microsoft/powerplatform-actions/export-solution@v0
+    #   with:
+    #     environment-url: ${{ github.event.inputs.source-org }}"
+    #     user-name: ${{ secrets.crm_dev_clientid }}
+    #     password-secret: ${{ secrets.crm_dev_clientsecret }}
+    #     solution-name: ${{ github.event.inputs.solution-name }}" 
+    #     solution-output-file: '${{ github.event.inputs.solution-name }}.zip'
+    #     working-directory: 'out'
 
     # - name: unpack-solution action
     #   uses: microsoft/powerplatform-actions/unpack-solution@v0
