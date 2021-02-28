@@ -36,11 +36,11 @@ jobs:
     - name: export-solution action
       uses: microsoft/powerplatform-actions/export-solution@main
       with:
-        environment-url: ${{ github.event.inputs.source-org }}"
+        environment-url: ${{ github.event.inputs.source-org }}
         app-id: ${{ secrets.crm_dev_clientid }}
         client-secret: ${{ secrets.crm_dev_clientid }}
         tenant-id: "e95f1b23-abaf-45ee-821d-b7ab251ab3bf"
-        solution-name: ${{ github.event.inputs.solution-name }}" 
+        solution-name: ${{ github.event.inputs.solution-name }}
         solution-output-file: '${{ github.event.inputs.solution-name }}.zip'
         working-directory: 'out'
 
