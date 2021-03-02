@@ -32,8 +32,8 @@ jobs:
     - name: pack-solution action
       uses: microsoft/powerplatform-actions/pack-solution@v0
       with:
-        solution-file: 'out/${{ github.event.inputs.solution-name }}.zip'
-        solution-folder: 'out/${{ github.event.inputs.solution-name }}'
+        solution-file: 'solutions/${{ github.event.inputs.solution-name }}.zip'
+        solution-folder: 'solutions/${{ github.event.inputs.solution-name }}'
         solution-type: 'Unmanaged'
         overwrite-files: true
 
@@ -44,7 +44,7 @@ jobs:
         app-id: ${{ secrets.CRM_DEV_CLIENTID }}
         client-secret: ${{ secrets.CRM_DEV_CLIENTSECRET }}
         tenant-id: "e95f1b23-abaf-45ee-821d-b7ab251ab3bf"
-        solution-file: ${{ github.event.inputs.solution-name }}
+        solution-file: solutions/${{ github.event.inputs.solution-name }}
         activate-plugins: true
         force-overwrite: true
         publish-changes: true
