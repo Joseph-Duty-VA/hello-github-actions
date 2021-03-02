@@ -12,7 +12,7 @@ on:
       solution-name:
         description: "schema name of solution"
         required: true
-        default: "deploy_solution"
+        default: "CICDRelease2"
 
 jobs:
   export-solution:
