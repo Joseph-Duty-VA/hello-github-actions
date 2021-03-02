@@ -47,15 +47,15 @@ jobs:
     - name: unpack-solution action
       uses: microsoft/powerplatform-actions/unpack-solution@v0
       with:
-        solution-file: 'out/exported/${{ github.event.inputs.solution-name }}.zip'
-        solution-folder: 'out/solutions/${{ github.event.inputs.solution-name }}'
+        solution-file: 'out/${{ github.event.inputs.solution-name }}.zip'
+        solution-folder: 'out/${{ github.event.inputs.solution-name }}'
         solution-type: 'Unmanaged'
         overwrite-files: true
 
     - name: branch-solution, prepare it for a PullRequest
       uses: microsoft/powerplatform-actions/branch-solution@v0
       with:
-        solution-folder: 'out/solutions/${{ github.event.inputs.solution-name }}'
+        solution-folder: 'out/${{ github.event.inputs.solution-name }}'
         solution-target-folder: 'solutions/${{ github.event.inputs.solution-name }}'
         repo-token: ${{ secrets.GITHUB_TOKEN }}
         allow-empty-commit: true
