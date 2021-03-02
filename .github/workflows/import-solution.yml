@@ -1,0 +1,50 @@
+name: "Export-Import Solution"
+
+on:
+  workflow_dispatch: 
+    inputs:
+      target-org: 
+        description: "import destination"
+        required: true
+        default: 'https://dvagov-veft-perf.crm9.dynamics.com'
+      solution-name:
+        description: "schema name of solution"
+        required: true
+        default: "CICDRelease2"
+
+jobs:
+  export-solution:
+    runs-on: windows-latest
+    steps:
+    - name: checkout
+      uses: actions/checkout@v2
+      with: 
+        lfs: true
+
+    - name: who-am-i action
+      uses: microsoft/powerplatform-actions/who-am-i@main
+      with:
+        environment-url: ${{ github.event.inputs.source-org }}
+        app-id: ${{ secrets.crm_dev_clientid }}
+        client-secret: ${{ secrets.CRM_DEV_CLIENTSECRET }}
+        tenant-id: "e95f1b23-abaf-45ee-821d-b7ab251ab3bf"
+
+    - name: pack-solution action
+      uses: microsoft/powerplatform-actions/pack-solution@v0
+      with:
+        solution-file: 'out/${{ github.event.inputs.solution-name }}.zip'
+        solution-folder: 'out/${{ github.event.inputs.solution-name }}'
+        solution-type: 'Unmanaged'
+        overwrite-files: true
+
+    - name: import-solution action
+      uses: microsoft/powerplatform-actions/import-solution@main
+      with:
+        environment-url: ${{ github.event.inputs.source-org }}
+        app-id: ${{ secrets.CRM_DEV_CLIENTID }}
+        client-secret: ${{ secrets.CRM_DEV_CLIENTSECRET }}
+        tenant-id: "e95f1b23-abaf-45ee-821d-b7ab251ab3bf"
+        solution-file: ${{ github.event.inputs.solution-name }}
+        activate-plugins: true
+        force-overwrite: true
+        publish-changes: true
